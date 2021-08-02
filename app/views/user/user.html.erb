@@ -19,38 +19,28 @@
     </div>
   </div>
 </nav>
-<section class="container">
-<h1>Voici la page home</h1>
-  <div class="border border-2 rounded-3 border-primary m-3 p-3 col-4">
-    <% user=User.find(params[:id])%>
-      <h1><%= user.first_name %> <%= user.last_name %></h1>
-      <p><%= user.description %></p>
-      <p><%= user.email %></p>
-      <p><%= user.age %></p>
-      <p>profil crée le : <%= user.created_at %></p>
-      <i></i>
-       <em> <%= City.find(user.city_id).name %></em>  
-  </div>
-</section>
 
 <section class="wrapper">
   <div class="container">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-12">
             <div class="card text-light card-has-bg click-col" style="background-image:url('https://source.unsplash.com/600x900/?tech,street');">
             <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
                 <div class="card-img-overlay d-flex flex-column">
                     <div class="card-body">
-                        <small class="card-meta mb-2">Thought Leadership</small>
-                        <h4 class="card-title mt-0 "><a class="text-light" herf="#">Goverment Lorem Ipsum Sit Amet Consectetur dipisi?</a></h4>
-                        <small><i class="far fa-clock"></i> October 15, 2020</small>
+                     <% user=User.find(params[:id])%>
+                        <small class="card-meta mb-2"><%= user.first_name %> <%= user.last_name %></small>
+                        <h4 class="card-title mt-0 text-light" ><%= user.description %></h4>
+                        <small><i class="far fa-clock"></i> <%= user.email %></small>
+                        <small><i class="far fa-clock"></i> <%= City.find(user.city_id).name %></small>
+
                     </div>
                     <div class="card-footer">
                         <div class="media">
                             <img class="mr-3 rounded-circle" src="https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png" alt="Generic placeholder image" style="max-width:50px">
                             <div class="media-body">
-                                <h6 class="my-0 text-white d-block">Oz COruhlu</h6>
-                                    <small>Director of UI/UX</small>
+                                <h6 class="my-0 text-white d-block"><%= user.first_name %> <%= user.last_name %></h6>
+                                    <small><%= user.created_at %></small>
                             </div>
                         </div>  
                     </div>
@@ -59,3 +49,5 @@
       </div>
   </div>
 </section>
+
+                    <em>2021 - THE GOSSIP PROJECT </em>
