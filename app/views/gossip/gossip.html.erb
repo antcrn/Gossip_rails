@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+ <%= link_to 'Gossips', '/', class: 'navbar-brand' %>   
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'Home', '/', class: 'nav-link active' %>
+        </li>
+        <li class="nav-item">
+        <%= link_to 'Contact', '/contact', class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Team', '/team', class: 'nav-link' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section class="container">
+     <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Gossip preview-->
+                    <% gossip=Gossip.find(params[:id])%>
+                    <div class="post-preview">
+                      <h1 class="post-title"><%= gossip.title %></h1>
+                      <p class="post-subtitle"><%= gossip.content %></p>
+                      <em class="post-meta">
+                      Posted by
+                      <%= link_to User.find(gossip.user_id).first_name, user_id_path(gossip.user_id),class: 'link-dark' %>
+                      , <%= gossip.created_at %>
+                      </em>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                </div>
+            </div>
+      </div>
+
+</section>
+
+                    <em>2021 - THE GOSSIP PROJECT </em>
